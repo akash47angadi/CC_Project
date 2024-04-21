@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uc2-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uc2
+  template:
+    metadata:
+      labels:
+        app: uc2
+    spec:
+      containers:
+        - name: uc2
+          image: your-registry/uc2-image:latest
+          ports:
+            - containerPort: 5000

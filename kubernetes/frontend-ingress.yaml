@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+spec:
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - path: /uc1
+            pathType: Prefix
+            backend:
+              service:
+                name: uc1-service
+                port:
+                  number: 80
+          - path: /uc2
+            pathType: Prefix
+            backend:
+              service:
+                name: uc2-service
+                port:
+                  number: 80
+          - path: /uc3
+            pathType: Prefixq
+            backend:
+              service:
+                name: uc3-service
+                port:
+                  number: 80

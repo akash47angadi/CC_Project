@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uc1-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uc1
+  template:
+    metadata:
+      labels:
+        app: uc1
+    spec:
+      containers:
+        - name: uc1
+          image: your-registry/uc1-image:latest
+          ports:
+            - containerPort: 5000
